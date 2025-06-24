@@ -10,29 +10,46 @@ Le scoring d’appétence attribue un score à chaque client selon sa probabilit
 
 Une base de 1 063 clients de La Réunion, avec des données fiables issues du système d’information, a été collectée. La variable cible (détention de la carte) est accompagnée de 34 variables explicatives sélectionnées pour l’analyse.
 
-# Données disponibles et préparation
+# Données disponibles et préparation méthodologiques
 Une base de 1 063 clients de La Réunion, avec des données fiables issues du système d’information, a été collectée. La variable cible (détention de la carte) est accompagnée de 34 variables explicatives sélectionnées pour l’analyse. Les données préparées seront traitées via le logiciel SAS dans le premier rapport et avec R dans le second rapport. 
 
-# Méthodologie avancée : 
-- Rapport intermédiaire : Analyse en Composantes Multiples (ACM) + Clustering + Régression logistique
-- Rapport final : Règle d'associations + Test sur le classifieur bayésien  ou SVM
+- La principale contrainte dans un premier temps as été le souci d'interprétabilité. Sur ce, nous avons donc utilisé dans le rapport intermédiaire : Analyse en Composantes Multiples (ACM) + Clustering + Régression logistique
+- Dans un deuxième temps, il faut garder cette interprétabilité mais aussi une performance très élevée en prédiction. Nous avons donc utilisé : Règle d'associations + Test sur le classifieur bayésien  ou SVM (efficace en petite taille de données). 
 
-# Grande découverte 1 :  ACM + méthodes de Clustering : Entre performance et interprétabilité
+# Grandes découvertes sur le rapport intermédiaire
+## ACM + méthodes de Clustering : Entre performance et interprétabilité
 - ACM nettoie, simplifie, visualise → meilleure base.
 - Clustering exploite cet espace → groupes plus stables, homogènes et lisibles.
 - Résultats plus robustes et interprétables.
 
-# Grande découverte 2 : ACM + méthodes de Clustering + Régression logistique : Entre performance, interprétabilité et prédiction
+## ACM + méthodes de Clustering + Régression logistique : Entre performance, interprétabilité et prédiction
 - On implémente une régression logistique dont la sortie finale renseigne le nombre de points par les modalités des variables
 - Via chaque cluster formé par plusieurs modalités de quelques variables , on définit la somme de score des modalités de chaque cluster
 - Dans notre cas, les clusters avec +60 scores sont classés appétentes
 - Les scores entre 6 et 60 sont potentiellement appétentes
 - Les scores moins de 6 sont moins pleausibles, pas très intéressants.
 
-# Grande découverte 3 : Signification de prédiction
-- Avec des nouveaux clients, le modèle est capable de dire s'il est appétent au produit.
+## Signification du mot prédiction
+- Avec des nouveaux clients, le modèle est capable de dire s'il est appétent au produit ou non.
+- Le modèle peut avoir raison comme par exemple : prédiction de l'appétence et le client est réellement appétent
 - Il est possible de mieux expliquer le choix du modèle en comparant les caractéristiques de l'individu par rapport aux classes prédéfinies.
 
+## Métriques d'évaluation 
+|                    | Prédit : Négatif | Prédit : Positif |
+|--------------------|------------------|------------------|
+| **Réel : Négatif** | 85 (vrais négatifs) | 15 (faux positifs) |
+| **Réel : Positif** | 10 (faux négatifs)  | 90 (vrais positifs) |
+
+
+# Grandes découvertes sur le rapport final
+## Avant d'utiliser un modèle, il est nécessaire de bien comprendre les paramètres auquels il se repose. 
+- Nous implémenté par exemple ici une règle d'association dont les trois paramètres sont visualisées dans le graphique ci-dessous
+![image](https://github.com/user-attachments/assets/0abd44be-4791-41cd-bb57-f8118377898f)
+- Chaque indicateur a été décrit et expliqué en page 7 et 8.
+
+## 
+
+## Effectuer une étude de Data Science c'est aussi 
 
 # Petite découverte 1 :  J'ai découvert comment on met en place d'une cohérente les statistiques exploratoires multidimensionnelles qualitatives se font en quelques sections très complémentaires :
 ##  Section 1 : Première caractérisation
