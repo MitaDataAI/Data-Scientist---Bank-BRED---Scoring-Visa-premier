@@ -1,4 +1,4 @@
-# Projet fil rouge avec 
+# Projet avec 
 ![image](https://github.com/user-attachments/assets/17e5beb1-9063-4894-b922-ae923b49e77f)
 
 ## Présentation du Groupe BPCE
