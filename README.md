@@ -37,10 +37,22 @@
 - Exemple : les clients jeunes n'ont pas d'emplois
 
 # Grande découverte 2 :  La formule très simple mais fondatrice du clustering 
-Il s'fait de : 
+## La formule de R²
+Il s'agit de : 
+$$
+R^2 \;=\;
+\frac{\displaystyle \operatorname{Inertie}_{\text{inter}}}
+     {\displaystyle \operatorname{Inertie}_{\text{totale}}}
+$$
 
-```math
-R^2 = \frac{\text{Inertie inter-classe}}{\text{Inertie totale}}
+## Signification 
+- Il faut maximiser d'une part l'inertie inter-classe par rapport à l'inertie totale pour avoir des classes différentes
+- R² varit de 0 à 1 donc. Plus on se rapproche de 1, K-means est de plus en plus parfait.
+
+# Grande découverte 3 :  ACM + méthodes de Clustering : Entre performance et interprétabilité
+- ACM nettoie, simplifie, visualise → meilleure base.
+- Clustering exploite cet espace → groupes plus stables, homogènes et lisibles.
+- Résultats plus robustes et interprétables.
 
 # Amélioration du projet : 
 - Resampling des données d'échantillonage pour éviter le biais liés au genre. En effet, nous avons trouvé (page 4) que les personnes qui utilisent le plus la carte Visa Premier sont les personnens de sexe Homme à revenu élevé, occupant une poste hiérarchique élevé au sein d'une entreprise. Le modèle que nous avons eu ici en final detient donc ce biais qui prédit que les Hommes sont plus appétents aux cartes de Visa Premier que les Femmes.
