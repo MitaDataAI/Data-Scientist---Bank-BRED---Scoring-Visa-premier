@@ -1,6 +1,21 @@
 # Projet fil rouge avec 
 ![image](https://github.com/user-attachments/assets/17e5beb1-9063-4894-b922-ae923b49e77f)
 
+## Présentation du Groupe BPCE
+Le Groupe BPCE est le 2ᵉ acteur bancaire en France, avec 100 000 employés au service de 36 millions de clients dans le monde. Il est actif en banque de détail, assurance, gestion d’actifs et banque d’affaires, à travers des marques comme Banque Populaire, Caisse d'Épargne, Palatine et Natixis.
+
+# Contexte stratégique et marketing
+Dans un marché centré sur la satisfaction client, la banque vise à mieux comprendre et anticiper les besoins pour fidéliser et rentabiliser sa clientèle. Elle souhaite utiliser un scoring automatisé pour optimiser l’octroi de la Carte Visa Premier.
+Le scoring d’appétence attribue un score à chaque client selon sa probabilité d’intérêt pour une offre. Il permet d’améliorer l’efficacité des campagnes marketing car il ciblae les clients les plus succeptibles d'être intéressés par la carte. Ce projet de data mining prédictif vise à tester cette approche.
+
+Une base de 1 063 clients de La Réunion, avec des données fiables issues du système d’information, a été collectée. La variable cible (détention de la carte) est accompagnée de 34 variables explicatives sélectionnées pour l’analyse.
+
+# Données disponibles et préparation
+Une base de 1 063 clients de La Réunion, avec des données fiables issues du système d’information, a été collectée. La variable cible (détention de la carte) est accompagnée de 34 variables explicatives sélectionnées pour l’analyse. Les données préparées seront traitées via le logiciel SAS dans le premier rapport et avec R dans le second rapport. 
+
+# Méthodologie avancée : 
+- Rapport intermédiaire : Analyse en Composantes Multiples (ACM) + Clustering + Régression logistique
+- Rapport final : Règle d'associations + Test sur le classifieur bayésien  ou SVM
 
 # Grande découverte 1 :  ACM + méthodes de Clustering : Entre performance et interprétabilité
 - ACM nettoie, simplifie, visualise → meilleure base.
