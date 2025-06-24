@@ -37,9 +37,7 @@
 - Exemple : les clients jeunes n'ont pas d'emplois
 
 # Grande découverte 2 :  La formule très simple mais fondatrice du clustering 
-Il s'fait de 
-
-```math
+Il s'fait de : 
 R^2 = \frac{\text{Inertie inter-classe}}{\text{Inertie totale}}
 
 
