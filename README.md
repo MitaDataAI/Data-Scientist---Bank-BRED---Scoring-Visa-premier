@@ -1,4 +1,21 @@
-# Grande découverte 1 :  J'ai découvert comment on met en place d'une cohérente les statistiques exploratoires multidimensionnelles qualitatives se font en quelques sections très complémentaires :
+# Grande découverte 1 :  ACM + méthodes de Clustering : Entre performance et interprétabilité
+- ACM nettoie, simplifie, visualise → meilleure base.
+- Clustering exploite cet espace → groupes plus stables, homogènes et lisibles.
+- Résultats plus robustes et interprétables.
+
+# Grande découverte 2 : ACM + méthodes de Clustering + Régression logistique : Entre performance, interprétabilité et prédiction
+- On implémente une régression logistique dont la sortie finale renseigne le nombre de points par les modalités des variables
+- Via chaque cluster formé par plusieurs modalités de quelques variables , on définit la somme de score des modalités de chaque cluster
+- Dans notre cas, les clusters avec +60 scores sont classés appétentes
+- Les scores entre 6 et 60 sont potentiellement appétentes
+- Les scores moins de 6 sont moins pleausibles, pas très intéressants.
+
+# Grande découverte 3 : Signification de prédiction
+- Avec des nouveaux clients, le modèle est capable de dire s'il est appétent au produit.
+- Il est possible de mieux expliquer le choix du modèle en comparant les caractéristiques de l'individu par rapport aux classes prédéfinies.
+
+
+# Petite découverte 1 :  J'ai découvert comment on met en place d'une cohérente les statistiques exploratoires multidimensionnelles qualitatives se font en quelques sections très complémentaires :
 ##  Section 1 : Première caractérisation
 ### Etape 1 : Choisir les variables actifs et passifs mais non pas les axes optimaux 
 - L'analyse multidimensionnelle consiste à représenter en quelques axes principaux qui synthétisent les informations des variables explicatives pour expliquer la variable à expliquer.
@@ -36,7 +53,7 @@
 - On ajoute les informations cohérentes avec les deux axes des autres axes et éventuellement les individus les plus représentatifs
 - Exemple : les clients jeunes n'ont pas d'emplois
 
-# Grande découverte 2 :  La formule très simple mais fondatrice du clustering 
+# Petite découverte 2 :  La formule très simple mais fondatrice du clustering 
 ## La formule de R²
 Il s'agit de : 
 $$
@@ -49,10 +66,6 @@ $$
 - Il faut maximiser d'une part l'inertie inter-classe par rapport à l'inertie totale pour avoir des classes différentes
 - R² varit de 0 à 1 donc. Plus on se rapproche de 1, K-means est de plus en plus parfait.
 
-# Grande découverte 3 :  ACM + méthodes de Clustering : Entre performance et interprétabilité
-- ACM nettoie, simplifie, visualise → meilleure base.
-- Clustering exploite cet espace → groupes plus stables, homogènes et lisibles.
-- Résultats plus robustes et interprétables.
 
 # Amélioration du projet : 
 - Resampling des données d'échantillonage pour éviter le biais liés au genre. En effet, nous avons trouvé (page 4) que les personnes qui utilisent le plus la carte Visa Premier sont les personnens de sexe Homme à revenu élevé, occupant une poste hiérarchique élevé au sein d'une entreprise. Le modèle que nous avons eu ici en final detient donc ce biais qui prédit que les Hommes sont plus appétents aux cartes de Visa Premier que les Femmes.
