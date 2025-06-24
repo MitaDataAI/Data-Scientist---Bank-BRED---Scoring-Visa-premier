@@ -35,11 +35,11 @@ Une base de 1 063 clients de La Réunion, avec des données fiables issues du sy
 - Il est possible de mieux expliquer le choix du modèle en comparant les caractéristiques de l'individu par rapport aux classes prédéfinies.
 
 ## Métriques d'évaluation 
-|                    | Prédit : Négatif | Prédit : Positif |
-|--------------------|------------------|------------------|
-| **Réel : Négatif** | 85 (vrais négatifs) | 15 (faux positifs) |
-| **Réel : Positif** | 10 (faux négatifs)  | 90 (vrais positifs) |
 
+|                      | Prédit : Négatif     | Prédit : Positif     |
+|----------------------|----------------------|-----------------------|
+| **Réel : Négatif**   | Vrai Négatif (TN) : 85 | Faux Positif (FP) : 15 |
+| **Réel : Positif**   | Faux Négatif (FN) : 10 | Vrai Positif (TP) : 90 |
 
 # Grandes découvertes sur le rapport final
 ## Avant d'utiliser un modèle, il est nécessaire de bien comprendre les paramètres auquels il se repose. 
