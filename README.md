@@ -41,15 +41,29 @@ Une base de 1 063 clients de La Réunion, avec des données fiables issues du sy
 | **Réel : Négatif**   | Vrai Négatif (TN) : 85 | Faux Positif (FP) : 15 |
 | **Réel : Positif**   | Faux Négatif (FN) : 10 | Vrai Positif (TP) : 90 |
 
+## Courbe de ROC
+- Pour tracer une courbe de ROC, il y a plusieurs matrice de confusion correspondant à différents seuils :
+| Seuil | TP | FP | TN | FN | TPR (Rappel) | FPR   |
+|-------|----|----|----|----|--------------|-------|
+| 0.9   | 40 |  5 | 90 | 60 | 0.40         | 0.052 |
+| 0.7   | 65 | 10 | 85 | 35 | 0.65         | 0.105 |
+| 0.5   | 80 | 20 | 75 | 20 | 0.80         | 0.210 |
+| 0.3   | 90 | 35 | 60 | 10 | 0.90         | 0.368 |
+| …     | …  | …  | …  | …  | …            | …     |
+
+- On trace ensuite tous les points (FPR, TPR) sur un graphique et celà donne la courbe de ROC.
+- Plus la courbe de ROC se rapproche de 1, plus le modèle détecte beaucoup de vraie positif sans faire beaucoup d'erreur sur les négatifs.
+- Il peut comprendre la différence entre le Oui et le Non donc.
+- On dit que le modèle est significativement performant s'il fait mieux que 0.5. 
+
+
+
 # Grandes découvertes sur le rapport final
 ## Avant d'utiliser un modèle, il est nécessaire de bien comprendre les paramètres auquels il se repose. 
 - Nous implémenté par exemple ici une règle d'association dont les trois paramètres sont visualisées dans le graphique ci-dessous
 ![image](https://github.com/user-attachments/assets/0abd44be-4791-41cd-bb57-f8118377898f)
 - Chaque indicateur a été décrit et expliqué en page 7 et 8.
 
-## 
-
-## Effectuer une étude de Data Science c'est aussi 
 
 # Petite découverte 1 :  J'ai découvert comment on met en place d'une cohérente les statistiques exploratoires multidimensionnelles qualitatives se font en quelques sections très complémentaires :
 ##  Section 1 : Première caractérisation
@@ -101,7 +115,6 @@ $$
 ## Signification 
 - Il faut maximiser d'une part l'inertie inter-classe par rapport à l'inertie totale pour avoir des classes différentes
 - R² varit de 0 à 1 donc. Plus on se rapproche de 1, K-means est de plus en plus parfait.
-
 
 # Amélioration du projet : 
 - Resampling des données d'échantillonage pour éviter le biais liés au genre. En effet, nous avons trouvé (page 4) que les personnes qui utilisent le plus la carte Visa Premier sont les personnens de sexe Homme à revenu élevé, occupant une poste hiérarchique élevé au sein d'une entreprise. Le modèle que nous avons eu ici en final detient donc ce biais qui prédit que les Hommes sont plus appétents aux cartes de Visa Premier que les Femmes.
