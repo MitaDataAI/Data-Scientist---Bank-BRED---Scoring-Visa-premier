@@ -1,3 +1,7 @@
+# Projet fil rouge avec 
+![image](https://github.com/user-attachments/assets/17e5beb1-9063-4894-b922-ae923b49e77f)
+
+
 # Grande découverte 1 :  ACM + méthodes de Clustering : Entre performance et interprétabilité
 - ACM nettoie, simplifie, visualise → meilleure base.
 - Clustering exploite cet espace → groupes plus stables, homogènes et lisibles.
