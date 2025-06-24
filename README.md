@@ -38,8 +38,9 @@
 
 # Grande découverte 2 :  La formule très simple mais fondatrice du clustering 
 Il s'fait de : 
-R^2 = \frac{\text{Inertie inter-classe}}{\text{Inertie totale}}
 
+```math
+R^2 = \frac{\text{Inertie inter-classe}}{\text{Inertie totale}}
 
 # Amélioration du projet : 
 - Resampling des données d'échantillonage pour éviter le biais liés au genre. En effet, nous avons trouvé (page 4) que les personnes qui utilisent le plus la carte Visa Premier sont les personnens de sexe Homme à revenu élevé, occupant une poste hiérarchique élevé au sein d'une entreprise. Le modèle que nous avons eu ici en final detient donc ce biais qui prédit que les Hommes sont plus appétents aux cartes de Visa Premier que les Femmes.
