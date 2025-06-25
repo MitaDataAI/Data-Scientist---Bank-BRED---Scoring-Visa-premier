@@ -17,6 +17,15 @@ Une base de 1 063 clients de La Réunion, avec des données fiables issues du sy
 - Dans un deuxième temps, il faut garder cette interprétabilité mais aussi une performance très élevée en prédiction. Nous avons donc utilisé : Règle d'associations + Test sur le classifieur bayésien  ou SVM (efficace en petite taille de données). 
 
 # Grandes découvertes sur le rapport intermédiaire
+## Signification du Scoring 
+- Le Best modèle entrainé peut donner des scores aux différentes modalités des variables ;
+- Ces scores de modalités sont non significatifs s'ils ne sont pas agencés à l'aide des classes déjà établies en amont ;
+- Par exemple, le fait d'être un homme (modalité 1 avec un score de 17), directeur d'une entreprise (modalité 2 avec un score de 15), ayant un épragne relativement élevé (modalité 3 avec un score de 21), qui dépensent énormément (modalité 4 avec un score de 20) font qu'un client est plus appétent à la carte Visa Premier (pour un score de 73 > 60).
+- Dans notre cas, les clusters avec +60 scores sont classés appétentes (en fonction de l'analyse de données)
+- Les scores entre 6 et 60 sont potentiellement appétentes
+- Les scores moins de 6 sont moins pleausibles, pas très intéressants.
+
+
 ## ACM + méthodes de Clustering : Entre performance et interprétabilité
 - ACM nettoie, simplifie, visualise → meilleure base.
 - Clustering exploite cet espace → groupes plus stables, homogènes et lisibles.
@@ -25,9 +34,7 @@ Une base de 1 063 clients de La Réunion, avec des données fiables issues du sy
 ## ACM + méthodes de Clustering + Régression logistique : Entre performance, interprétabilité et prédiction
 - On implémente une régression logistique dont la sortie finale renseigne le nombre de points par les modalités des variables
 - Via chaque cluster formé par plusieurs modalités de quelques variables , on définit la somme de score des modalités de chaque cluster
-- Dans notre cas, les clusters avec +60 scores sont classés appétentes
-- Les scores entre 6 et 60 sont potentiellement appétentes
-- Les scores moins de 6 sont moins pleausibles, pas très intéressants.
+- On applique les règles du scoring ci-dessus
 
 ## Signification du mot prédiction
 - Avec des nouveaux clients, le modèle est capable de dire s'il est appétent au produit ou non.
@@ -61,9 +68,34 @@ Une base de 1 063 clients de La Réunion, avec des données fiables issues du sy
 
 # Grandes découvertes sur le rapport final
 ## Avant d'utiliser un modèle, il est nécessaire de bien comprendre les paramètres auquels il se repose. 
-- Nous implémenté par exemple ici une règle d'association dont les trois paramètres sont visualisées dans le graphique ci-dessous
+-  Nous implémenté par exemple ici une règle d'association dont les trois paramètres sont visualisées dans le graphique ci-dessous
 ![image](https://github.com/user-attachments/assets/0abd44be-4791-41cd-bb57-f8118377898f)
 - Chaque indicateur a été décrit et expliqué en page 7 et 8.
+
+## Optimisation de l'hyperparamètre comme un des éléments fondamentaux du Data Science
+- Un hyperparamètre c'est une variable configurable pour changer le comportement du modèle pour mieux apprendre ; 
+- Il peut donc prendre des valeurs qui tendent vers l'infini ; 
+- Le problème devient à fixer cette valeur ; 
+- C'est là qu'intervienne le processus de validation croisée ;
+- Dans la pratique, on entraine et valide le modèle sur un pannel d'hyperparamètres qui ont fait leur succès dans des études empiriques antécédentes ;
+- L'hyperparamètre choisi sera utilisé en TEST après
+
+## Un bon Data Scientist : un bon mathématicien
+- Comprendre l'impact ed l'hyperparamètre passe avant tout sur la capacité à bien comprendre les relations de l'hyperparamètre et le modèle en théorie ; 
+- Les relations sont en forme de mathématiques ; 
+- Voilà pourquoi un bon Data scientist c'est un bon mathématicien.
+- Sans cette connaissance, le Data Scientist risque de tester n'importe quoi dans l'hyperparamètre.
+
+## ACM + SVM comme meilleur modèle
+- Suite au rapport intermédiaire, j'ai essayé de combiner SVM avec les axes factorielles de l'ACM.
+- La stratégie a pu discrimé excellement les deux classes :
+![image](https://github.com/user-attachments/assets/5355c777-15b6-4734-aa46-a670ce323902)
+- Un bon choix du nombre d'axes factoriels nous a permis de mieux performer le modèle SVM avec une valeur de ROC plus de 98%. 
+
+## Modèle interprétatif VS prédictif
+- Dans le rapport intermédiaire, nous avons utilisé l'ACM en tant qu'exploration des données. Alors que dans le rapport final, il a été utilisé en tant qu'appyue de la prédiction du SVM.
+- Dans les deux cas, l'implémentation n'est pas pareils. Pour le premier, il a été claire qu'on favorise l'interprétation de relation des variables et des modalités. Il s'agit aussi de mieux définir les individus très représentatifs. Par contre, dans le deuxième cas d'usage, il suffit juste de bien savoir si ACM conduit SVM à mieux discriminer ou non (page 34 à 36).
+- Puisque dans le deuxième rapport, il nous importe de mieux travailler 
 
 
 # Petite découverte 1 :  J'ai découvert comment on met en place d'une cohérente les statistiques exploratoires multidimensionnelles qualitatives se font en quelques sections très complémentaires :
@@ -118,5 +150,17 @@ $$
 - R² varit de 0 à 1 donc. Plus on se rapproche de 1, K-means est de plus en plus parfait.
 
 # Amélioration du projet : 
-- Resampling des données d'échantillonage pour éviter le biais liés au genre. En effet, nous avons trouvé (page 4) que les personnes qui utilisent le plus la carte Visa Premier sont les personnens de sexe Homme à revenu élevé, occupant une poste hiérarchique élevé au sein d'une entreprise. Le modèle que nous avons eu ici en final detient donc ce biais qui prédit que les Hommes sont plus appétents aux cartes de Visa Premier que les Femmes.
-- Confusion de langage : K-means n'appartient pas dans la classification, c'est plutôt un clustering et donc non-supervisé. 
+- Exploration Data Analysis : Resampling des données d'échantillonage pour éviter le biais liés au genre. En effet, nous avons trouvé (page 4) que les personnes qui utilisent le plus la carte Visa Premier sont les personnens de sexe Homme à revenu élevé, occupant une poste hiérarchique élevé au sein d'une entreprise. Le modèle que nous avons eu ici en final detient donc ce biais qui prédit que les Hommes sont plus appétents aux cartes de Visa Premier que les Femmes.
+- Confusion de langage : K-means n'appartient pas dans la classification, c'est plutôt un clustering et donc non-supervisé.
+- Confusion du principe de Machine Learning  : A travers les pages 28 0 30, on s'aperçoit qu'on fasse le paramètrage de l'hyperparamètre du SVM dans l'échantillon de test aussi. Or, durant le test, il n'y a plus de configuration à faire pour juste apprécier la capacité du modèle à se généraliser.   
+- Bien que nous avons les codes de programmation dans l'annexe des rapports, il sera mieux de les inclure dans un Git.
+
+# Packages de R utilisés
+- arules (pour les règles d’association, notamment sur l'algorithme Apriori)
+- arulesViz (visualisation des règles d’association)
+- tidyverse (ensemble de packages pour la manipulation et visualisation des données)
+- ROCR (évaluation de modèles de classification, courbes ROC/AUC)
+- e1071 (algorithmes de machine learning comme Naïve Bayes et SVM)
+- Matrix (gestion efficace de grandes matrices creuses)
+- FactoMineR (analyse exploratoire multivariée : ACM)
+- kernlab (méthodes à noyaux, notamment SVM non linéaire comme radial, ...)
