@@ -43,6 +43,7 @@ Une base de 1 063 clients de La Réunion, avec des données fiables issues du sy
 
 ## Courbe de ROC
 - Pour tracer une courbe de ROC, il y a plusieurs matrice de confusion correspondant à différents seuils :
+  
 | Seuil | TP | FP | TN | FN | TPR (Rappel) | FPR   |
 |-------|----|----|----|----|--------------|-------|
 | 0.9   | 40 |  5 | 90 | 60 | 0.40         | 0.052 |
