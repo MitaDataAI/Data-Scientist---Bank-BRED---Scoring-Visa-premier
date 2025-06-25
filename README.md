@@ -152,12 +152,8 @@ Une base de 1 063 clients de La Réunion, avec des données fiables issues du sy
 - Exemple : les clients jeunes n'ont pas d'emplois
 
 # Petite découverte 2 :  La formule très simple mais fondatrice du clustering 
-La formule de R²
-Il s'agit de :
-
-$$
-R^2 = \frac{\operatorname{Inertie}_{\text{inter}}}{\operatorname{Inertie}_{\text{totale}}}
-$$
+## La formule de R²
+![Formule de R²](https://latex.codecogs.com/png.image?\dpi{150}R^2%20=%20\frac{\operatorname{Inertie}_{\text{inter}}}{\operatorname{Inertie}_{\text{totale}}})
 
 ## Signification 
 - Il faut maximiser d'une part l'inertie inter-classe par rapport à l'inertie totale pour avoir des classes différentes
