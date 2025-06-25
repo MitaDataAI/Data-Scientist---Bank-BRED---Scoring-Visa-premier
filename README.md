@@ -152,11 +152,11 @@ Une base de 1 063 clients de La Réunion, avec des données fiables issues du sy
 - Exemple : les clients jeunes n'ont pas d'emplois
 
 # Petite découverte 2 :  La formule très simple mais fondatrice du clustering 
-## La formule de R²
-Il s'agit de : 
+La formule de R²
+Il s'agit de :
+
 $$
-R^2 = \frac{\displaystyle \operatorname{Inertie}_{\text{inter}}}
-             {\displaystyle \operatorname{Inertie}_{\text{totale}}}
+R^2 = \frac{\operatorname{Inertie}_{\text{inter}}}{\operatorname{Inertie}_{\text{totale}}}
 $$
 
 ## Signification 
