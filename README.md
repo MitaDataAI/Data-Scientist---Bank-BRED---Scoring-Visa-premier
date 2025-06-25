@@ -155,9 +155,8 @@ Une base de 1 063 clients de La Réunion, avec des données fiables issues du sy
 ## La formule de R²
 Il s'agit de : 
 $$
-R^2 \;=\;
-\frac{\displaystyle \operatorname{Inertie}_{\text{inter}}}
-     {\displaystyle \operatorname{Inertie}_{\text{totale}}}
+R^2 = \frac{\displaystyle \operatorname{Inertie}_{\text{inter}}}
+             {\displaystyle \operatorname{Inertie}_{\text{totale}}}
 $$
 
 ## Signification 
