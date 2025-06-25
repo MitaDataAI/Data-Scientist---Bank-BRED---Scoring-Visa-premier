@@ -97,6 +97,21 @@ Une base de 1 063 clients de La Réunion, avec des données fiables issues du sy
 - Dans les deux cas, l'implémentation n'est pas pareils. Pour le premier, il a été claire qu'on favorise l'interprétation de relation des variables et des modalités. Il s'agit aussi de mieux définir les individus très représentatifs. Par contre, dans le deuxième cas d'usage, il suffit juste de bien savoir si ACM conduit SVM à mieux discriminer ou non (page 34 à 36).
 - Puisque dans le deuxième rapport, il nous importe de mieux travailler 
 
+# Amélioration du projet : 
+- Exploration Data Analysis : Resampling des données d'échantillonage pour éviter le biais liés au genre. En effet, nous avons trouvé (page 4) que les personnes qui utilisent le plus la carte Visa Premier sont les personnens de sexe Homme à revenu élevé, occupant une poste hiérarchique élevé au sein d'une entreprise. Le modèle que nous avons eu ici en final detient donc ce biais qui prédit que les Hommes sont plus appétents aux cartes de Visa Premier que les Femmes.
+- Confusion de langage : K-means n'appartient pas dans la classification, c'est plutôt un clustering et donc non-supervisé.
+- Confusion du principe de Machine Learning  : A travers les pages 28 0 30, on s'aperçoit qu'on fasse le paramètrage de l'hyperparamètre du SVM dans l'échantillon de test aussi. Or, durant le test, il n'y a plus de configuration à faire pour juste apprécier la capacité du modèle à se généraliser.   
+- Bien que nous avons les codes de programmation dans l'annexe des rapports, il sera mieux de les inclure dans un Git.
+
+# Packages de R utilisés
+- arules (pour les règles d’association, notamment sur l'algorithme Apriori)
+- arulesViz (visualisation des règles d’association)
+- tidyverse (ensemble de packages pour la manipulation et visualisation des données)
+- ROCR (évaluation de modèles de classification, courbes ROC/AUC)
+- e1071 (algorithmes de machine learning comme Naïve Bayes et SVM)
+- Matrix (gestion efficace de grandes matrices creuses)
+- FactoMineR (analyse exploratoire multivariée : ACM)
+- kernlab (méthodes à noyaux, notamment SVM non linéaire comme radial, ...)
 
 # Petite découverte 1 :  J'ai découvert comment on met en place d'une cohérente les statistiques exploratoires multidimensionnelles qualitatives se font en quelques sections très complémentaires :
 ##  Section 1 : Première caractérisation
@@ -148,19 +163,3 @@ $$
 ## Signification 
 - Il faut maximiser d'une part l'inertie inter-classe par rapport à l'inertie totale pour avoir des classes différentes
 - R² varit de 0 à 1 donc. Plus on se rapproche de 1, K-means est de plus en plus parfait.
-
-# Amélioration du projet : 
-- Exploration Data Analysis : Resampling des données d'échantillonage pour éviter le biais liés au genre. En effet, nous avons trouvé (page 4) que les personnes qui utilisent le plus la carte Visa Premier sont les personnens de sexe Homme à revenu élevé, occupant une poste hiérarchique élevé au sein d'une entreprise. Le modèle que nous avons eu ici en final detient donc ce biais qui prédit que les Hommes sont plus appétents aux cartes de Visa Premier que les Femmes.
-- Confusion de langage : K-means n'appartient pas dans la classification, c'est plutôt un clustering et donc non-supervisé.
-- Confusion du principe de Machine Learning  : A travers les pages 28 0 30, on s'aperçoit qu'on fasse le paramètrage de l'hyperparamètre du SVM dans l'échantillon de test aussi. Or, durant le test, il n'y a plus de configuration à faire pour juste apprécier la capacité du modèle à se généraliser.   
-- Bien que nous avons les codes de programmation dans l'annexe des rapports, il sera mieux de les inclure dans un Git.
-
-# Packages de R utilisés
-- arules (pour les règles d’association, notamment sur l'algorithme Apriori)
-- arulesViz (visualisation des règles d’association)
-- tidyverse (ensemble de packages pour la manipulation et visualisation des données)
-- ROCR (évaluation de modèles de classification, courbes ROC/AUC)
-- e1071 (algorithmes de machine learning comme Naïve Bayes et SVM)
-- Matrix (gestion efficace de grandes matrices creuses)
-- FactoMineR (analyse exploratoire multivariée : ACM)
-- kernlab (méthodes à noyaux, notamment SVM non linéaire comme radial, ...)
